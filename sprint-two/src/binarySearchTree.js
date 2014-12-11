@@ -26,8 +26,16 @@ var bstMethods = {
     }
   },
 
-  contains: function() {
-
+  contains: function(target) {
+    var found = false;
+    if (this.value === target) {
+      found = true;
+    } else if (target < this.value) {
+      found = this.left !== null && this.left.contains(target);
+    } else {
+      found = this.right !== null && this.right.contains(target);
+    }
+    return found;
   },
 
   depthFirstLog: function() {
