@@ -11,9 +11,10 @@ setPrototype.add = function(item){
 };
 
 setPrototype.contains = function(item){
-  return typeof _.find(this._storage, function(value) {
-    return value === item;
-  }) === 'string';
+  // return typeof _.find(this._storage, function(value) {
+  //   return value === item;
+  // }) === 'string';
+  return this._storage.hasOwnProperty(item);
 };
 
 setPrototype.remove = function(item){
@@ -24,4 +25,5 @@ setPrototype.remove = function(item){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+    O(1) ~ it's a hash table!
  */
