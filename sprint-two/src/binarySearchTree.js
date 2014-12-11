@@ -36,11 +36,21 @@ var bstMethods = {
     }
   },
 
-  depthFirstLog: function() {
-
+  depthFirstLog: function(cb) {
+    cb(this.value);
+    var children = [this.left, this.right];
+    _.each(children, function(child) {
+        child && child.depthFirstLog(cb);
+    });
   }
-};
 
+  // depthFirstLog: function(cb) {
+  //   cb(this.value)
+  //   this.left && this.left.depthFirstLog(cb);
+  //   this.right && this.right.depthFirstLog(cb);
+  // },
+
+}
 /*
  * Complexity: What is the time complexity of the above functions?
  */
