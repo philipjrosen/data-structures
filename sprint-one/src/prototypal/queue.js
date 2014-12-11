@@ -11,7 +11,6 @@ var Queue = function() {
 var queueMethods = {
   enqueue: function(value) {
     this.storage[this.counter++] = value;
-    console.log("counter", this.counter);
   },
   dequeue: function() {
     if (this.counter > 0) {
