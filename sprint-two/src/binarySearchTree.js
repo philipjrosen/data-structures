@@ -27,15 +27,13 @@ var bstMethods = {
   },
 
   contains: function(target) {
-    var found = false;
-    if (this.value === target) {
-      found = true;
-    } else if (target < this.value) {
-      found = this.left !== null && this.left.contains(target);
+
+    if (this.value === target) return true;
+    if (target < this.value) {
+      return this.left !== null && this.left.contains(target);
     } else {
-      found = this.right !== null && this.right.contains(target);
+      return this.right !== null && this.right.contains(target);
     }
-    return found;
   },
 
   depthFirstLog: function() {
