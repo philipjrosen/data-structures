@@ -37,4 +37,17 @@ describe('binarySearchTree', function() {
     console.log(array);
     expect(array).to.eql([5,2,3]);
   });
+
+  it('should log every value in a tree using "breadthFirstLog"', function(){
+    var arr = [];
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(7);
+    binarySearchTree.left.insert(1);
+    binarySearchTree.right.insert(6);
+    binarySearchTree.right.insert(9);
+    binarySearchTree.breadthFirstLog(function(x){
+      arr.push(x);
+    });
+    expect(arr).to.eql([5,2,7,1,6,9]);
+  });
 });
