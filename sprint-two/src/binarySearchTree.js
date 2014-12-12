@@ -44,11 +44,11 @@ var bstMethods = {
     });
   },
 
-  breadthFirstLog: function() {
+  breadthFirstLog: function(cb) {
    var queue = [];
    queue.push(this);
    while(queue.length!==0){
-    console.log(queue[0].value);
+    cb(queue[0].value);
     if(queue[0].left !== null){
       queue.push(queue[0].left);
     }
