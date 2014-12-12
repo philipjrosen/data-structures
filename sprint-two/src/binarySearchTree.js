@@ -42,13 +42,30 @@ var bstMethods = {
     _.each(children, function(child) {
         child && child.depthFirstLog(cb);
     });
-  }
+  },
 
   // depthFirstLog: function(cb) {
   //   cb(this.value)
   //   this.left && this.left.depthFirstLog(cb);
   //   this.right && this.right.depthFirstLog(cb);
   // },
+
+  breadthFirstLog: function(cb) {
+   var queue = [];
+   queue.push(this);
+   while(queue.length!==0){
+    //cb(queue[0]);
+    console.log(queue[0].value);
+    debugger;
+    if(queue[0].left !== null){
+      queue.push(queue[0].left);
+    }
+    if(queue[0].right !== null){
+      queue.push(queue[0].right);
+    }
+    queue = queue.splice(0,1);
+   }
+  }
 
 }
 /*
