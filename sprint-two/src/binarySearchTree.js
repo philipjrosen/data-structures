@@ -44,30 +44,25 @@ var bstMethods = {
     });
   },
 
-  // depthFirstLog: function(cb) {
-  //   cb(this.value)
-  //   this.left && this.left.depthFirstLog(cb);
-  //   this.right && this.right.depthFirstLog(cb);
-  // },
-
-  breadthFirstLog: function(cb) {
+  breadthFirstLog: function() {
    var queue = [];
    queue.push(this);
    while(queue.length!==0){
-    //cb(queue[0]);
     console.log(queue[0].value);
-    debugger;
     if(queue[0].left !== null){
       queue.push(queue[0].left);
     }
     if(queue[0].right !== null){
       queue.push(queue[0].right);
     }
-    queue = queue.splice(0,1);
+    queue.splice(0,1);
    }
   }
-
 }
 /*
  * Complexity: What is the time complexity of the above functions?
+ insert: O(1)
+ contains: O(log n)
+ depthFirstLog: O(n)
+ breadthFirstLog: O(n)
  */
