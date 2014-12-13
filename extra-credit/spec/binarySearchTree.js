@@ -1,6 +1,6 @@
 /* global binarySearchTree, describe, it, expect, should */
 
-describe('binarySearchTree()', function () {
+describe('BinarySearchTree()', function () {
   var binarySearchTree;
 
 
@@ -139,10 +139,8 @@ describe('binarySearchTree()', function () {
       binarySearchTree.insert(3);
       binarySearchTree.insert(2);
       binarySearchTree.insert(1);
-
       //inc
     });
-
 
   });
   // Add more assertions here

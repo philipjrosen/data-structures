@@ -97,9 +97,60 @@ var bstMethods = {
   //   }
   //  }
   // },
-  checkMin: function(){},
-  checkMax: function(){},
-  rebalance: function(){}
+
+  compileDepths: function(){
+    var parentTree = this;
+    var depths = [];
+    parentTree.depthFirstLog(function(){
+      depths.push(this);
+    });
+    return depths;
+  },
+  checkMinDepth: function(){
+    var parentTree = this;
+    var depths = [];
+    depths = parentTree.compileDepths();
+    var sortedArray;
+    var sortedArray = _.sortBy(depths, function(num){
+      return num;
+    });
+    return sortedArray[0];
+    //could be refactored to pass compileDepths to sortBy;
+  },
+  checkMaxDepth: function(){
+    var parentTree = this;
+    var depths = [];
+    depths = parentTree.compileDepths();
+    var sortedArray;
+    var sortedArray = _.sortBy(depths, function(num){
+      return num;
+    });
+    return sortedArray[sortedArray.length-1];
+    //could be refactored to pass compileDepths to sortBy;
+  },
+  rebalance: function(){
+    var parentTree = this;
+    //incomplete *** Breaker***
+    var sortedArray = parentTree.depthFirstLog();
+
+  },
+  checkRebalance: function(){
+    return ((checkMax % checkMin) >2);
+  },
+
+  batchInsert: function(value){
+    //takes a list of value arguments, batch inserts them
+    //then checks if a rebalance is needed
+    var parentTree = this;
+    var newNodes = Array.prototype.splice.call(arguments);
+    _.each(newNodes, function(value){
+      parentTree.insert(value);
+    });
+    if (parentTree.checkRebalance()){
+      parentTree.rebalance();
+    }
+
+  }
 }
 /*
 shallowest node depth is equal to min depth
