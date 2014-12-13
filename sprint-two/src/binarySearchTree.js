@@ -60,6 +60,11 @@ var bstMethods = {
   }
 }
 /*
+shallowest node depth is equal to min depth
+deepest node depth = max depth
+rebalance when max > min *2
+*/
+/*
  * Complexity: What is the time complexity of the above functions?
  insert: O(1)
  contains: O(log n)

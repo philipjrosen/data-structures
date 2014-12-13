@@ -42,12 +42,16 @@ describe('binarySearchTree', function() {
     var arr = [];
     binarySearchTree.insert(2);
     binarySearchTree.insert(7);
-    binarySearchTree.left.insert(1);
-    binarySearchTree.right.insert(6);
-    binarySearchTree.right.insert(9);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(9);
     binarySearchTree.breadthFirstLog(function(x){
       arr.push(x);
     });
+    binarySearchTree.breadthFirstLog(function(x){
+      console.log(x);
+    });
     expect(arr).to.eql([5,2,7,1,6,9]);
   });
+
 });
