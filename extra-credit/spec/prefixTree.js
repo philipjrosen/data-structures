@@ -17,12 +17,13 @@ describe('PrefixTree()', function () {
     expect(prefixTree.children).to.be.instanceof(Array);
   });
 
-  // it('should have a parentNode', function() {
-  //   expect(prefixTree.hasChildren).to.be.a("function");
-  // });
 
-  // it('should have a parentNode', function() {
-  //   expect(prefixTree.hasChildren).to.be.a("function");
-  // });
+  it('should have a parentNode', function() {
+    expect(prefixTree.hasChildren).to.be.a("function");
+  });
+
+it('should have a parentNode', function() {
+    expect(prefixTree.hasChildren).to.be.a("function");
+  });
 
 });
